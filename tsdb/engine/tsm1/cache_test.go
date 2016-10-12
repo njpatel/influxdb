@@ -719,7 +719,7 @@ type points struct {
 
 func BenchmarkCacheParallelFloatEntries(b *testing.B) {
 	c := b.N * runtime.GOMAXPROCS(0)
-	cache := NewCache(uint64(c)*fvSize, "")
+	cache := NewCache(uint64(c)*fvSize*10, "")
 	vals := make([]points, c)
 	for i := 0; i < c; i++ {
 		v := make([]Value, 10)
